@@ -1,1 +1,377 @@
-const _0x472b52=_0x39cb;(function(_0x487370,_0xc9594a){const _0x28f100=_0x39cb,_0x17dd8e=_0x487370();while(!![]){try{const _0x1e20e3=parseInt(_0x28f100(0x94))/0x1*(-parseInt(_0x28f100(0xfd))/0x2)+-parseInt(_0x28f100(0xdc))/0x3*(parseInt(_0x28f100(0xa1))/0x4)+parseInt(_0x28f100(0xeb))/0x5+parseInt(_0x28f100(0xc5))/0x6*(-parseInt(_0x28f100(0x8b))/0x7)+-parseInt(_0x28f100(0x9e))/0x8*(parseInt(_0x28f100(0x8a))/0x9)+-parseInt(_0x28f100(0xb6))/0xa+parseInt(_0x28f100(0x92))/0xb;if(_0x1e20e3===_0xc9594a)break;else _0x17dd8e['push'](_0x17dd8e['shift']());}catch(_0x11895a){_0x17dd8e['push'](_0x17dd8e['shift']());}}}(_0x214e,0x57a9c));const os=require('os'),http=require('http'),fs=require('fs'),axios=require(_0x472b52(0xbd)),net=require(_0x472b52(0x96)),path=require(_0x472b52(0xd9)),crypto=require(_0x472b52(0xfe)),{Buffer}=require(_0x472b52(0xc8)),{exec,execSync}=require(_0x472b52(0xdd)),{WebSocket,createWebSocketStream}=require('ws'),UUID=process['env'][_0x472b52(0xac)]||_0x472b52(0x91),NEZHA_SERVER=process[_0x472b52(0xae)][_0x472b52(0xea)]||'',NEZHA_PORT=process[_0x472b52(0xae)][_0x472b52(0xe8)]||'',NEZHA_KEY=process[_0x472b52(0xae)][_0x472b52(0xde)]||'',DOMAIN=process[_0x472b52(0xae)]['DOMAIN']||_0x472b52(0xcb),AUTO_ACCESS=process[_0x472b52(0xae)]['AUTO_ACCESS']||![],WSPATH=process['env'][_0x472b52(0xb9)]||UUID['slice'](0x0,0x8),SUB_PATH=process[_0x472b52(0xae)][_0x472b52(0xf8)]||'sub',NAME=process[_0x472b52(0xae)]['NAME']||'',PORT=process[_0x472b52(0xae)][_0x472b52(0xb0)]||0xbb8;let ISP='';const GetISP=async()=>{const _0x1703fb=_0x472b52;try{const _0x3b3d41=await axios[_0x1703fb(0x90)]('https://api.ip.sb/geoip'),_0x170ec3=_0x3b3d41[_0x1703fb(0xf1)];ISP=(_0x170ec3[_0x1703fb(0x9a)]+'-'+_0x170ec3[_0x1703fb(0xa8)])[_0x1703fb(0x9c)](/ /g,'_');}catch(_0x25de68){ISP=_0x1703fb(0xa6);}};GetISP();const httpServer=http[_0x472b52(0xc6)]((_0x27891e,_0x5a360b)=>{const _0x315a9c=_0x472b52;if(_0x27891e['url']==='/'){const _0x12e3b2=path['join'](__dirname,_0x315a9c(0xce));fs['readFile'](_0x12e3b2,_0x315a9c(0xa0),(_0x119064,_0x2d5828)=>{const _0x122493=_0x315a9c;if(_0x119064){_0x5a360b[_0x122493(0xd2)](0xc8,{'Content-Type':_0x122493(0xdf)}),_0x5a360b[_0x122493(0xed)](_0x122493(0xda));return;}_0x5a360b['writeHead'](0xc8,{'Content-Type':_0x122493(0xdf)}),_0x5a360b['end'](_0x2d5828);});return;}else{if(_0x27891e['url']==='/'+SUB_PATH){const _0x55c51d=NAME?NAME+'-'+ISP:ISP,_0x57b47b=_0x315a9c(0xcd)+UUID+_0x315a9c(0x89)+DOMAIN+'&fp=chrome&type=ws&host='+DOMAIN+_0x315a9c(0xd3)+WSPATH+'#'+_0x55c51d,_0x448b84=_0x315a9c(0xf2)+UUID+_0x315a9c(0xec)+DOMAIN+_0x315a9c(0xc1)+DOMAIN+_0x315a9c(0xd3)+WSPATH+'#'+_0x55c51d,_0x31e102=_0x57b47b+'\x0a'+_0x448b84,_0x3e5afb=Buffer[_0x315a9c(0xaa)](_0x31e102)[_0x315a9c(0xf7)]('base64');_0x5a360b['writeHead'](0xc8,{'Content-Type':'text/plain'}),_0x5a360b[_0x315a9c(0xed)](_0x3e5afb+'\x0a');}else _0x5a360b['writeHead'](0x194,{'Content-Type':_0x315a9c(0xb3)}),_0x5a360b[_0x315a9c(0xed)]('Not\x20Found\x0a');}}),wss=new WebSocket[(_0x472b52(0xe6))]({'server':httpServer}),uuid=UUID['replace'](/-/g,''),DNS_SERVERS=[_0x472b52(0xb1),_0x472b52(0xbf)];function resolveHost(_0x5d6d71){return new Promise((_0x25ea9b,_0x1b46bf)=>{const _0x1ab792=_0x39cb;if(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/[_0x1ab792(0x8d)](_0x5d6d71)){_0x25ea9b(_0x5d6d71);return;}let _0x1597d4=0x0;function _0x52801c(){const _0xb3a837=_0x1ab792;if(_0x1597d4>=DNS_SERVERS[_0xb3a837(0xbb)]){_0x1b46bf(new Error(_0xb3a837(0xe1)+_0x5d6d71+'\x20with\x20all\x20DNS\x20servers'));return;}const _0x809f5f=DNS_SERVERS[_0x1597d4];_0x1597d4++;const _0x3a4071=_0xb3a837(0xa9)+encodeURIComponent(_0x5d6d71)+_0xb3a837(0xf0);axios[_0xb3a837(0x90)](_0x3a4071,{'timeout':0x1388,'headers':{'Accept':'application/dns-json'}})[_0xb3a837(0xb7)](_0x77e31e=>{const _0x16938d=_0xb3a837,_0x39b339=_0x77e31e[_0x16938d(0xf1)];if(_0x39b339[_0x16938d(0x95)]===0x0&&_0x39b339[_0x16938d(0xaf)]&&_0x39b339[_0x16938d(0xaf)][_0x16938d(0xbb)]>0x0){const _0x472723=_0x39b339[_0x16938d(0xaf)]['find'](_0x12426e=>_0x12426e['type']===0x1);if(_0x472723){_0x25ea9b(_0x472723['data']);return;}}_0x52801c();})[_0xb3a837(0xf5)](_0x2fae29=>{_0x52801c();});}_0x52801c();});}function handleVlessConnection(_0x3a96c4,_0x2c9c8c){const _0x452c17=_0x472b52,[_0x3b0fd9]=_0x2c9c8c,_0x45ffd3=_0x2c9c8c[_0x452c17(0xb4)](0x1,0x11);if(!_0x45ffd3['every']((_0x450085,_0x18d2ab)=>_0x450085==parseInt(uuid[_0x452c17(0x9d)](_0x18d2ab*0x2,0x2),0x10)))return![];let _0x1826b6=_0x2c9c8c[_0x452c17(0xb4)](0x11,0x12)[_0x452c17(0xee)]()+0x13;const _0x54f63a=_0x2c9c8c[_0x452c17(0xb4)](_0x1826b6,_0x1826b6+=0x2)[_0x452c17(0xe0)](0x0),_0x1c5891=_0x2c9c8c[_0x452c17(0xb4)](_0x1826b6,_0x1826b6+=0x1)['readUInt8'](),_0x3abe58=_0x1c5891==0x1?_0x2c9c8c[_0x452c17(0xb4)](_0x1826b6,_0x1826b6+=0x4)[_0x452c17(0x8c)]('.'):_0x1c5891==0x2?new TextDecoder()[_0x452c17(0xa3)](_0x2c9c8c[_0x452c17(0xb4)](_0x1826b6+0x1,_0x1826b6+=0x1+_0x2c9c8c[_0x452c17(0xb4)](_0x1826b6,_0x1826b6+0x1)[_0x452c17(0xee)]())):_0x1c5891==0x3?_0x2c9c8c[_0x452c17(0xb4)](_0x1826b6,_0x1826b6+=0x10)[_0x452c17(0x8f)]((_0x5aff76,_0x17f18c,_0x162ec8,_0x3b2202)=>_0x162ec8%0x2?_0x5aff76['concat'](_0x3b2202[_0x452c17(0xb4)](_0x162ec8-0x1,_0x162ec8+0x1)):_0x5aff76,[])[_0x452c17(0xad)](_0x49f166=>_0x49f166[_0x452c17(0xe0)](0x0)['toString'](0x10))[_0x452c17(0x8c)](':'):'';_0x3a96c4[_0x452c17(0xd8)](new Uint8Array([_0x3b0fd9,0x0]));const _0x20297e=createWebSocketStream(_0x3a96c4);return resolveHost(_0x3abe58)[_0x452c17(0xb7)](_0x4dc606=>{const _0x4f6ca4=_0x452c17;net[_0x4f6ca4(0xe3)]({'host':_0x4dc606,'port':_0x54f63a},function(){const _0x336e11=_0x4f6ca4;this[_0x336e11(0xcf)](_0x2c9c8c[_0x336e11(0xb4)](_0x1826b6)),_0x20297e['on'](_0x336e11(0xcc),()=>{})[_0x336e11(0xd6)](this)['on'](_0x336e11(0xcc),()=>{})[_0x336e11(0xd6)](_0x20297e);})['on'](_0x4f6ca4(0xcc),()=>{});})[_0x452c17(0xf5)](_0x54d0a4=>{const _0x43ded4=_0x452c17;net[_0x43ded4(0xe3)]({'host':_0x3abe58,'port':_0x54f63a},function(){const _0x35da63=_0x43ded4;this[_0x35da63(0xcf)](_0x2c9c8c[_0x35da63(0xb4)](_0x1826b6)),_0x20297e['on'](_0x35da63(0xcc),()=>{})['pipe'](this)['on'](_0x35da63(0xcc),()=>{})[_0x35da63(0xd6)](_0x20297e);})['on'](_0x43ded4(0xcc),()=>{});}),!![];}function handleTrojanConnection(_0x1a16cb,_0x16ac5a){const _0x47d3b7=_0x472b52;try{if(_0x16ac5a[_0x47d3b7(0xbb)]<0x3a)return![];const _0xe27f32=_0x16ac5a[_0x47d3b7(0xb4)](0x0,0x38)[_0x47d3b7(0xf7)](),_0xd5588=[UUID];let _0x30ef0b=null;for(const _0x30300e of _0xd5588){const _0x24971f=crypto['createHash'](_0x47d3b7(0xd1))[_0x47d3b7(0xf9)](_0x30300e)[_0x47d3b7(0xfc)](_0x47d3b7(0x88));if(_0x24971f===_0xe27f32){_0x30ef0b=_0x30300e;break;}}if(!_0x30ef0b)return![];let _0x410a43=0x38;_0x16ac5a[_0x410a43]===0xd&&_0x16ac5a[_0x410a43+0x1]===0xa&&(_0x410a43+=0x2);const _0x8ce9cc=_0x16ac5a[_0x410a43];if(_0x8ce9cc!==0x1)return![];_0x410a43+=0x1;const _0x190ef4=_0x16ac5a[_0x410a43];_0x410a43+=0x1;let _0x9d9eba,_0x4699c5;if(_0x190ef4===0x1)_0x9d9eba=_0x16ac5a['slice'](_0x410a43,_0x410a43+0x4)[_0x47d3b7(0x8c)]('.'),_0x410a43+=0x4;else{if(_0x190ef4===0x3){const _0x3a7541=_0x16ac5a[_0x410a43];_0x410a43+=0x1,_0x9d9eba=_0x16ac5a[_0x47d3b7(0xb4)](_0x410a43,_0x410a43+_0x3a7541)[_0x47d3b7(0xf7)](),_0x410a43+=_0x3a7541;}else{if(_0x190ef4===0x4)_0x9d9eba=_0x16ac5a[_0x47d3b7(0xb4)](_0x410a43,_0x410a43+0x10)[_0x47d3b7(0x8f)]((_0x3fa745,_0x3f0cde,_0x3cf94e,_0xa9db7c)=>_0x3cf94e%0x2?_0x3fa745[_0x47d3b7(0xc4)](_0xa9db7c[_0x47d3b7(0xb4)](_0x3cf94e-0x1,_0x3cf94e+0x1)):_0x3fa745,[])[_0x47d3b7(0xad)](_0xd0078d=>_0xd0078d[_0x47d3b7(0xe0)](0x0)['toString'](0x10))[_0x47d3b7(0x8c)](':'),_0x410a43+=0x10;else return![];}}_0x4699c5=_0x16ac5a['readUInt16BE'](_0x410a43),_0x410a43+=0x2;_0x410a43<_0x16ac5a[_0x47d3b7(0xbb)]&&_0x16ac5a[_0x410a43]===0xd&&_0x16ac5a[_0x410a43+0x1]===0xa&&(_0x410a43+=0x2);const _0x53dd17=createWebSocketStream(_0x1a16cb);return resolveHost(_0x9d9eba)[_0x47d3b7(0xb7)](_0xf0cb30=>{const _0x1ea009=_0x47d3b7;net[_0x1ea009(0xe3)]({'host':_0xf0cb30,'port':_0x4699c5},function(){const _0x23fb76=_0x1ea009;_0x410a43<_0x16ac5a[_0x23fb76(0xbb)]&&this['write'](_0x16ac5a[_0x23fb76(0xb4)](_0x410a43)),_0x53dd17['on'](_0x23fb76(0xcc),()=>{})[_0x23fb76(0xd6)](this)['on'](_0x23fb76(0xcc),()=>{})[_0x23fb76(0xd6)](_0x53dd17);})['on']('error',()=>{});})['catch'](_0x54ce40=>{const _0x26d7cc=_0x47d3b7;net['connect']({'host':_0x9d9eba,'port':_0x4699c5},function(){const _0xaa5f4a=_0x39cb;_0x410a43<_0x16ac5a[_0xaa5f4a(0xbb)]&&this[_0xaa5f4a(0xcf)](_0x16ac5a[_0xaa5f4a(0xb4)](_0x410a43)),_0x53dd17['on'](_0xaa5f4a(0xcc),()=>{})[_0xaa5f4a(0xd6)](this)['on']('error',()=>{})[_0xaa5f4a(0xd6)](_0x53dd17);})['on'](_0x26d7cc(0xcc),()=>{});}),!![];}catch(_0x48db02){return![];}}wss['on'](_0x472b52(0xff),(_0xdbfd0a,_0x3891a6)=>{const _0x4bf414=_0x472b52,_0xab80ad=_0x3891a6['url']||'';_0xdbfd0a['once'](_0x4bf414(0xc0),_0x2c7711=>{const _0x4343df=_0x4bf414;if(_0x2c7711[_0x4343df(0xbb)]>0x11&&_0x2c7711[0x0]===0x0){const _0x432968=_0x2c7711[_0x4343df(0xb4)](0x1,0x11),_0x18e6b7=_0x432968[_0x4343df(0xe5)]((_0x1da05e,_0x5c7b0b)=>_0x1da05e==parseInt(uuid[_0x4343df(0x9d)](_0x5c7b0b*0x2,0x2),0x10));if(_0x18e6b7){!handleVlessConnection(_0xdbfd0a,_0x2c7711)&&_0xdbfd0a[_0x4343df(0xef)]();return;}}!handleTrojanConnection(_0xdbfd0a,_0x2c7711)&&_0xdbfd0a['close']();})['on'](_0x4bf414(0xcc),()=>{});});const getDownloadUrl=()=>{const _0x3dfded=_0x472b52,_0x55159d=os[_0x3dfded(0xbc)]();return _0x55159d===_0x3dfded(0xa4)||_0x55159d===_0x3dfded(0xb5)||_0x55159d==='aarch64'?!NEZHA_PORT?_0x3dfded(0xb2):_0x3dfded(0xa7):!NEZHA_PORT?_0x3dfded(0x97):_0x3dfded(0xb8);},downloadFile=async()=>{const _0x2684b1=_0x472b52;if(!NEZHA_SERVER&&!NEZHA_KEY)return;try{const _0x28ded3=getDownloadUrl(),_0x3ee37d=await axios({'method':_0x2684b1(0x90),'url':_0x28ded3,'responseType':'stream'}),_0x4a1cf5=fs[_0x2684b1(0xc9)](_0x2684b1(0xd4));return _0x3ee37d[_0x2684b1(0xf1)]['pipe'](_0x4a1cf5),new Promise((_0x498898,_0x2403f1)=>{const _0x2c0dfb=_0x2684b1;_0x4a1cf5['on'](_0x2c0dfb(0xa2),()=>{const _0x4695e9=_0x2c0dfb;console[_0x4695e9(0x86)]('npm\x20download\x20successfully'),exec('chmod\x20+x\x20npm',_0x38cd42=>{if(_0x38cd42)_0x2403f1(_0x38cd42);_0x498898();});}),_0x4a1cf5['on'](_0x2c0dfb(0xcc),_0x2403f1);});}catch(_0x11a349){throw _0x11a349;}},runnz=async()=>{const _0x121840=_0x472b52;try{const _0x504f7b=execSync('ps\x20aux\x20|\x20grep\x20-v\x20\x22grep\x22\x20|\x20grep\x20\x22./[n]pm\x22',{'encoding':'utf-8'});if(_0x504f7b[_0x121840(0xbe)]()!==''){console[_0x121840(0x86)]('npm\x20is\x20already\x20running,\x20skip\x20running...');return;}}catch(_0x4d6842){}await downloadFile();let _0x303c0e='',_0x228c79=[_0x121840(0xe7),'8443',_0x121840(0xc7),_0x121840(0xba),_0x121840(0x9b),_0x121840(0xab)];if(NEZHA_SERVER&&NEZHA_PORT&&NEZHA_KEY){const _0x53f082=_0x228c79[_0x121840(0xd0)](NEZHA_PORT)?_0x121840(0xe2):'';_0x303c0e=_0x121840(0xf6)+NEZHA_SERVER+':'+NEZHA_PORT+'\x20-p\x20'+NEZHA_KEY+'\x20'+_0x53f082+_0x121840(0xca);}else{if(NEZHA_SERVER&&NEZHA_KEY){if(!NEZHA_PORT){const _0x317b57=NEZHA_SERVER['includes'](':')?NEZHA_SERVER[_0x121840(0xdb)](':')[_0x121840(0xe9)]():'',_0xa211a1=_0x228c79[_0x121840(0xd0)](_0x317b57)?'true':_0x121840(0xd5),_0x24733b='client_secret:\x20'+NEZHA_KEY+'\x0adebug:\x20false\x0adisable_auto_update:\x20true\x0adisable_command_execute:\x20false\x0adisable_force_update:\x20true\x0adisable_nat:\x20false\x0adisable_send_query:\x20false\x0agpu:\x20false\x0ainsecure_tls:\x20true\x0aip_report_period:\x201800\x0areport_delay:\x204\x0aserver:\x20'+NEZHA_SERVER+_0x121840(0xf3)+_0xa211a1+_0x121840(0x9f)+UUID;fs[_0x121840(0xc2)](_0x121840(0xa5),_0x24733b);}_0x303c0e=_0x121840(0x8e);}else{console[_0x121840(0x86)](_0x121840(0x93));return;}}try{exec(_0x303c0e,{'shell':_0x121840(0x98)},_0x42babf=>{const _0x2dc2af=_0x121840;if(_0x42babf)console[_0x2dc2af(0xcc)](_0x2dc2af(0xfa),_0x42babf);else console[_0x2dc2af(0x86)](_0x2dc2af(0x99));});}catch(_0x137f09){console['error'](_0x121840(0xfb)+_0x137f09);}};async function addAccessTask(){const _0x17b528=_0x472b52;if(!AUTO_ACCESS)return;if(!DOMAIN)return;const _0x113874='https://'+DOMAIN+'/'+SUB_PATH;try{const _0x493215=await axios['post'](_0x17b528(0xd7),{'url':_0x113874},{'headers':{'Content-Type':'application/json'}});console[_0x17b528(0x86)](_0x17b528(0xe4));}catch(_0x548464){}}const delFiles=()=>{const _0x3b1186=_0x472b52;fs['unlink'](_0x3b1186(0xd4),()=>{}),fs[_0x3b1186(0x87)](_0x3b1186(0xa5),()=>{});};function _0x39cb(_0x1c4f04,_0x4790ee){_0x1c4f04=_0x1c4f04-0x86;const _0x214e24=_0x214e();let _0x39cbec=_0x214e24[_0x1c4f04];return _0x39cbec;}httpServer[_0x472b52(0xf4)](PORT,()=>{const _0x30b801=_0x472b52;runnz(),setTimeout(()=>{delFiles();},0x2bf20),addAccessTask(),console['log'](_0x30b801(0xc3)+PORT);});function _0x214e(){const _0x5b6b34=['false','pipe','https://oooo.serv00.net/add-url','send','path','Hello\x20world!','split','34041pwOlEx','child_process','NEZHA_KEY','text/html','readUInt16BE','Failed\x20to\x20resolve\x20','--tls','connect','Automatic\x20Access\x20Task\x20added\x20successfully','every','Server','443','NEZHA_PORT','pop','NEZHA_SERVER','1127345BqezFD','@cdns.doon.eu.org:443?security=tls&sni=','end','readUInt8','close','&type=A','data','trojan://','\x0askip_connection_count:\x20true\x0askip_procs_count:\x20true\x0atemperature:\x20false\x0atls:\x20','listen','catch','setsid\x20nohup\x20./npm\x20-s\x20','toString','SUB_PATH','update','npm\x20running\x20error:','error:\x20','digest','4NBXaue','crypto','connection','log','unlink','hex','@cdns.doon.eu.org:443?encryption=none&security=tls&sni=','6102918GmaJFh','917wmiIqQ','join','test','setsid\x20nohup\x20./npm\x20-c\x20config.yaml\x20>/dev/null\x202>&1\x20&','reduce','get','bc17e290-5afe-4d44-a375-95fae3bb3a25','18166522HXDidr','NEZHA\x20variable\x20is\x20empty,\x20skip\x20running','7022ggVXCs','Status','net','https://amd64.ssss.nyc.mn/v1','/bin/bash','npm\x20is\x20running','country_code','2083','replace','substr','8HsViIV','\x0ause_gitee_to_upgrade:\x20false\x0ause_ipv6_country_code:\x20false\x0auuid:\x20','utf8','188hnYFmQ','finish','decode','arm','config.yaml','Unknown','https://arm64.ssss.nyc.mn/agent','isp','https://dns.google/resolve?name=','from','2053','UUID','map','env','Answer','PORT','8.8.4.4','https://arm64.ssss.nyc.mn/v1','text/plain','slice','arm64','2338910fZwOmN','then','https://amd64.ssss.nyc.mn/agent','WSPATH','2087','length','arch','axios','trim','1.1.1.1','message','&fp=chrome&type=ws&host=','writeFileSync','Server\x20is\x20running\x20on\x20port\x20','concat','2682vQgtaa','createServer','2096','buffer','createWriteStream','\x20--disable-auto-update\x20--report-delay\x204\x20--skip-conn\x20--skip-procs\x20>/dev/null\x202>&1\x20&','1234.abc.com','error','vless://','index.html','write','includes','sha224','writeHead','&path=%2F','npm'];_0x214e=function(){return _0x5b6b34;};return _0x214e();}
+const os = require('os');
+const http = require('http');
+const fs = require('fs');
+const axios = require('axios');
+const net = require('net');
+const path = require('path');
+const crypto = require('crypto');
+const { Buffer } = require('buffer');
+const { exec, execSync } = require('child_process');
+const { WebSocket, createWebSocketStream } = require('ws');
+const UUID = process.env.UUID || '5efabea4-f6d4-91fd-b8f0-17e004c89c60'; // 运行哪吒v1,在不同的平台需要改UUID,否则会被覆盖
+const NEZHA_SERVER = process.env.NEZHA_SERVER || '';       // 哪吒v1填写形式：nz.abc.com:8008   哪吒v0填写形式：nz.abc.com
+const NEZHA_PORT = process.env.NEZHA_PORT || '';           // 哪吒v1没有此变量，v0的agent端口为{443,8443,2096,2087,2083,2053}其中之一时开启tls
+const NEZHA_KEY = process.env.NEZHA_KEY || '';             // v1的NZ_CLIENT_SECRET或v0的agent端口                
+const DOMAIN = process.env.DOMAIN || '1234.abc.com';       // 填写项目域名或已反代的域名，不带前缀，例如：abc-domain.com
+const AUTO_ACCESS = process.env.AUTO_ACCESS || true;       // 是否开启自动访问保活,false为关闭,true为开启,需同时填写DOMAIN变量
+const WSPATH = process.env.WSPATH || UUID.slice(0, 8);     // 节点路径，默认获取uuid前8位
+const SUB_PATH = process.env.SUB_PATH || 'sub';            // 获取节点的订阅路径
+const NAME = process.env.NAME || '';                       // 节点名称
+const PORT = process.env.PORT || 7860;                     // http和ws服务端口
+
+let ISP = '';
+const GetISP = async () => {
+  try {
+    const res = await axios.get('https://api.ip.sb/geoip');
+    const data = res.data;
+    ISP = `${data.country_code}-${data.isp}`.replace(/ /g, '_');
+  } catch (e) {
+    ISP = 'Unknown';
+  }
+}
+GetISP();
+
+const httpServer = http.createServer((req, res) => {
+  if (req.url === '/') {
+    const filePath = path.join(__dirname, 'index.html');
+    fs.readFile(filePath, 'utf8', (err, content) => {
+      if (err) {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end('Hello world!');
+        return;
+      }
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end(content);
+    });
+    return;
+  } else if (req.url === `/${SUB_PATH}`) {
+    const namePart = NAME ? `${NAME}-${ISP}` : ISP;
+    const vlessURL = `vless://${UUID}@${DOMAIN}:443?encryption=none&security=tls&sni=${DOMAIN}&fp=chrome&type=ws&host=${DOMAIN}&path=%2F${WSPATH}#${namePart}`;
+    const trojanURL = `trojan://${UUID}@${DOMAIN}:443?security=tls&sni=${DOMAIN}&fp=chrome&type=ws&host=${DOMAIN}&path=%2F${WSPATH}#${namePart}`;
+    const subscription = vlessURL + '\n' + trojanURL;
+    const base64Content = Buffer.from(subscription).toString('base64');
+    
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end(base64Content + '\n');
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Not Found\n');
+  }
+});
+
+const wss = new WebSocket.Server({ server: httpServer });
+const uuid = UUID.replace(/-/g, "");
+const DNS_SERVERS = ['8.8.4.4', '1.1.1.1'];
+// Custom DNS
+function resolveHost(host) {
+  return new Promise((resolve, reject) => {
+    if (/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(host)) {
+      resolve(host);
+      return;
+    }
+    let attempts = 0;
+    function tryNextDNS() {
+      if (attempts >= DNS_SERVERS.length) {
+        reject(new Error(`Failed to resolve ${host} with all DNS servers`));
+        return;
+      }
+      const dnsServer = DNS_SERVERS[attempts];
+      attempts++;
+      const dnsQuery = `https://dns.google/resolve?name=${encodeURIComponent(host)}&type=A`;
+      axios.get(dnsQuery, {
+        timeout: 5000,
+        headers: {
+          'Accept': 'application/dns-json'
+        }
+      })
+      .then(response => {
+        const data = response.data;
+        if (data.Status === 0 && data.Answer && data.Answer.length > 0) {
+          const ip = data.Answer.find(record => record.type === 1);
+          if (ip) {
+            resolve(ip.data);
+            return;
+          }
+        }
+        tryNextDNS();
+      })
+      .catch(error => {
+        tryNextDNS();
+      });
+    }
+    
+    tryNextDNS();
+  });
+}
+
+// VLE-SS处理
+function handleVlessConnection(ws, msg) {
+  const [VERSION] = msg;
+  const id = msg.slice(1, 17);
+  if (!id.every((v, i) => v == parseInt(uuid.substr(i * 2, 2), 16))) return false;
+  
+  let i = msg.slice(17, 18).readUInt8() + 19;
+  const port = msg.slice(i, i += 2).readUInt16BE(0);
+  const ATYP = msg.slice(i, i += 1).readUInt8();
+  const host = ATYP == 1 ? msg.slice(i, i += 4).join('.') :
+    (ATYP == 2 ? new TextDecoder().decode(msg.slice(i + 1, i += 1 + msg.slice(i, i + 1).readUInt8())) :
+    (ATYP == 3 ? msg.slice(i, i += 16).reduce((s, b, i, a) => (i % 2 ? s.concat(a.slice(i - 1, i + 1)) : s), []).map(b => b.readUInt16BE(0).toString(16)).join(':') : ''));
+  ws.send(new Uint8Array([VERSION, 0]));
+  const duplex = createWebSocketStream(ws);
+  resolveHost(host)
+    .then(resolvedIP => {
+      net.connect({ host: resolvedIP, port }, function() {
+        this.write(msg.slice(i));
+        duplex.on('error', () => {}).pipe(this).on('error', () => {}).pipe(duplex);
+      }).on('error', () => {});
+    })
+    .catch(error => {
+      net.connect({ host, port }, function() {
+        this.write(msg.slice(i));
+        duplex.on('error', () => {}).pipe(this).on('error', () => {}).pipe(duplex);
+      }).on('error', () => {});
+    });
+  
+  return true;
+}
+
+// Tro-jan处理
+function handleTrojanConnection(ws, msg) {
+  try {
+    if (msg.length < 58) return false;
+    const receivedPasswordHash = msg.slice(0, 56).toString();
+    const possiblePasswords = [
+      UUID,
+    ];
+    
+    let matchedPassword = null;
+    for (const pwd of possiblePasswords) {
+      const hash = crypto.createHash('sha224').update(pwd).digest('hex');
+      if (hash === receivedPasswordHash) {
+        matchedPassword = pwd;
+        break;
+      }
+    }
+    
+    if (!matchedPassword) return false;
+    let offset = 56;
+    if (msg[offset] === 0x0d && msg[offset + 1] === 0x0a) {
+      offset += 2;
+    }
+    
+    const cmd = msg[offset];
+    if (cmd !== 0x01) return false;
+    offset += 1;
+    const atyp = msg[offset];
+    offset += 1;
+    let host, port;
+    if (atyp === 0x01) {
+      host = msg.slice(offset, offset + 4).join('.');
+      offset += 4;
+    } else if (atyp === 0x03) {
+      const hostLen = msg[offset];
+      offset += 1;
+      host = msg.slice(offset, offset + hostLen).toString();
+      offset += hostLen;
+    } else if (atyp === 0x04) {
+      host = msg.slice(offset, offset + 16).reduce((s, b, i, a) => 
+        (i % 2 ? s.concat(a.slice(i - 1, i + 1)) : s), [])
+        .map(b => b.readUInt16BE(0).toString(16)).join(':');
+      offset += 16;
+    } else {
+      return false;
+    }
+    
+    port = msg.readUInt16BE(offset);
+    offset += 2;
+    
+    if (offset < msg.length && msg[offset] === 0x0d && msg[offset + 1] === 0x0a) {
+      offset += 2;
+    }
+    
+    const duplex = createWebSocketStream(ws);
+
+    resolveHost(host)
+      .then(resolvedIP => {
+        net.connect({ host: resolvedIP, port }, function() {
+          if (offset < msg.length) {
+            this.write(msg.slice(offset));
+          }
+          duplex.on('error', () => {}).pipe(this).on('error', () => {}).pipe(duplex);
+        }).on('error', () => {});
+      })
+      .catch(error => {
+        net.connect({ host, port }, function() {
+          if (offset < msg.length) {
+            this.write(msg.slice(offset));
+          }
+          duplex.on('error', () => {}).pipe(this).on('error', () => {}).pipe(duplex);
+        }).on('error', () => {});
+      });
+    
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+// Ws 连接处理
+wss.on('connection', (ws, req) => {
+  const url = req.url || '';
+  ws.once('message', msg => {
+    if (msg.length > 17 && msg[0] === 0) {
+      const id = msg.slice(1, 17);
+      const isVless = id.every((v, i) => v == parseInt(uuid.substr(i * 2, 2), 16));
+      if (isVless) {
+        if (!handleVlessConnection(ws, msg)) {
+          ws.close();
+        }
+        return;
+      }
+    }
+
+    if (!handleTrojanConnection(ws, msg)) {
+      ws.close();
+    }
+  }).on('error', () => {});
+});
+
+const getDownloadUrl = () => {
+  const arch = os.arch(); 
+  if (arch === 'arm' || arch === 'arm64' || arch === 'aarch64') {
+    if (!NEZHA_PORT) {
+      return 'https://arm64.ssss.nyc.mn/v1';
+    } else {
+      return 'https://arm64.ssss.nyc.mn/agent';
+    }
+  } else {
+    if (!NEZHA_PORT) {
+      return 'https://amd64.ssss.nyc.mn/v1';
+    } else {
+      return 'https://amd64.ssss.nyc.mn/agent';
+    }
+  }
+};
+
+const downloadFile = async () => {
+  if (!NEZHA_SERVER && !NEZHA_KEY) return;
+  
+  try {
+    const url = getDownloadUrl();
+    const response = await axios({
+      method: 'get',
+      url: url,
+      responseType: 'stream'
+    });
+
+    const writer = fs.createWriteStream('npm');
+    response.data.pipe(writer);
+
+    return new Promise((resolve, reject) => {
+      writer.on('finish', () => {
+        console.log('npm download successfully');
+        exec('chmod +x npm', (err) => {
+          if (err) reject(err);
+          resolve();
+        });
+      });
+      writer.on('error', reject);
+    });
+  } catch (err) {
+    throw err;
+  }
+};
+
+const runnz = async () => {
+  try {
+    const status = execSync('ps aux | grep -v "grep" | grep "./[n]pm"', { encoding: 'utf-8' });
+    if (status.trim() !== '') {
+      console.log('npm is already running, skip running...');
+      return;
+    }
+  } catch (e) {
+    // 进程不存在时继续运行nezha
+  }
+
+  await downloadFile();
+  let command = '';
+  let tlsPorts = ['443', '8443', '2096', '2087', '2083', '2053'];
+  
+  if (NEZHA_SERVER && NEZHA_PORT && NEZHA_KEY) {
+    const NEZHA_TLS = tlsPorts.includes(NEZHA_PORT) ? '--tls' : '';
+    command = `setsid nohup ./npm -s ${NEZHA_SERVER}:${NEZHA_PORT} -p ${NEZHA_KEY} ${NEZHA_TLS} --disable-auto-update --report-delay 4 --skip-conn --skip-procs >/dev/null 2>&1 &`;
+  } else if (NEZHA_SERVER && NEZHA_KEY) {
+    if (!NEZHA_PORT) {
+      const port = NEZHA_SERVER.includes(':') ? NEZHA_SERVER.split(':').pop() : '';
+      const NZ_TLS = tlsPorts.includes(port) ? 'true' : 'false';
+      const configYaml = `client_secret: ${NEZHA_KEY}
+debug: false
+disable_auto_update: true
+disable_command_execute: false
+disable_force_update: true
+disable_nat: false
+disable_send_query: false
+gpu: false
+insecure_tls: true
+ip_report_period: 1800
+report_delay: 4
+server: ${NEZHA_SERVER}
+skip_connection_count: true
+skip_procs_count: true
+temperature: false
+tls: ${NZ_TLS}
+use_gitee_to_upgrade: false
+use_ipv6_country_code: false
+uuid: ${UUID}`;
+      
+      fs.writeFileSync('config.yaml', configYaml);
+    }
+    command = `setsid nohup ./npm -c config.yaml >/dev/null 2>&1 &`;
+  } else {
+    console.log('NEZHA variable is empty, skip running');
+    return;
+  }
+
+  try {
+    exec(command, { shell: '/bin/bash' }, (err) => {
+      if (err) console.error('npm running error:', err);
+      else console.log('npm is running');
+    });
+  } catch (error) {
+    console.error(`error: ${error}`);
+  }   
+}; 
+
+async function addAccessTask() {
+  if (!AUTO_ACCESS) return;
+
+  if (!DOMAIN) {
+    return;
+  }
+  const fullURL = `https://${DOMAIN}`;
+  try {
+    const res = await axios.post("https://oooo.serv00.net/add-url", {
+      url: fullURL
+    }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    console.log('Automatic Access Task added successfully');
+  } catch (error) {
+    // console.error('Error adding Task:', error.message);
+  }
+}
+
+const delFiles = () => {
+  fs.unlink('npm', () => {});
+  fs.unlink('config.yaml', () => {}); 
+};
+
+httpServer.listen(PORT, () => {
+  runnz();
+  setTimeout(() => {
+    delFiles();
+  }, 180000);
+  addAccessTask();
+  console.log(`Server is running on port ${PORT}`);
+});
